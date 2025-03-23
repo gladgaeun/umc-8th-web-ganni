@@ -6,7 +6,7 @@
   <!-- CSS 파일 업로드 -->
   <link rel="stylesheet" href="./style.css" />
   <!-- JS 파일 업로드 -->
-  <script type="module" src="./dist/script.js" defer></script>
+  <script type="module" src="./script.js" defer></script>
   <title>UMC TODO</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
       <input 
         type="text" 
         id="todo-input"
-        class="todo-cotainer__input" 
+        class="todo-container__input" 
         placeholder="할 일을 입력해주세요."
         required
       />
@@ -26,8 +26,7 @@
     <div class="render-container">
       <div class="render-container__section">
         <h2 class="render-container__title">할 일</h2>
-        <ul id="todo-list" class="render-container__list">
-        </ul>
+        <ul id="todo-list" class="render-container__list"></ul>
       </div>
       <div class="render-container__section">
         <h2 class="render-container__title">완료</h2>

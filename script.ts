@@ -24,7 +24,7 @@ const renderTasks = (): void => {
   });
 
   doneTasks.forEach((todo) : void => {
-    const li = createTodoElement(todo, false);
+    const li = createTodoElement(todo, true);
     doneList.appendChild(li);
   });
 };
@@ -43,19 +43,19 @@ const addTodo = (text: string) : void => {
 
 // 5. 할 일 상태 변경 (완료로 이동)
 const completeTodo = (todo: Todo) : void => {
-  todos = todos.filter((t) : Boolean => t.id !== todo.id);
+  todos = todos.filter((t): boolean => t.id !== todo.id);
   doneTasks.push(todo);
   renderTasks();
 };
 
 // 6. 완료된 할 일 삭제 함수
 const deleteTodo = (todo: Todo) : void => {
-  doneTasks = doneTasks.filter((t) : Boolean => t.id !== todo.id);
+  doneTasks = doneTasks.filter((t): boolean => t.id !== todo.id);
   renderTasks();
 };
 
 // 7. 할 일 아이템 생성 함수 (완료 여부에 따라 버튼 텍스트나 색상 설정)
-const createTodoElement = (todo: Todo, isDone: boolean) : void => {
+const createTodoElement = (todo: Todo, isDone: boolean) : HTMLLIElement => {
   const li = document.createElement('li');
   li.classList.add('render-container__item');
   li.textContent = todo.text;
@@ -74,7 +74,7 @@ const createTodoElement = (todo: Todo, isDone: boolean) : void => {
   button.addEventListener('click', () : void => {
     if (isDone) {
       deleteTodo(todo);
-    } else { completeTodo(todo: Todo): void
+    } else {
       completeTodo(todo);
       }
   });
@@ -82,13 +82,6 @@ const createTodoElement = (todo: Todo, isDone: boolean) : void => {
   li.appendChild(button);
   return li;
 };
-
-// <ul id="todo-list" class="render-container__list">
-//   <li class="render-container__item">
-//     <p class="render-container__item-text">123</p>
-//     <button class="render-container__item-button">삭제</button>
-//   </li>
-// </ul>
 
 // 8. 폼 제출 이벤트 리스너
 todoForm.addEventListener('submit', (event: Event) : void => {
